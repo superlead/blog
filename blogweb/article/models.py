@@ -4,11 +4,12 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Articles(models.Model):
     STATUS_ITEMS = (
         (1, u'正常'),
         (2, u'审核'),
-        (3, u'删除')
+        (3, u'删除'),
     )
 
     TOP_ITEMS = (
