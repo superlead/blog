@@ -13,6 +13,9 @@ class Link(models.Model):
     created_time = models.DateTimeField(auto_now_add=True, verbose_name=u'创建时间')
     is_display = models.BooleanField(default=True, verbose_name=u'是否显示')
 
+    def __unicode__(self):
+        return self.name
+
     class Meta:
         verbose_name_plural = verbose_name = u'友情链接'
         ordering = ['-created_time']
@@ -33,6 +36,9 @@ class SideBar(models.Model):
     owner = models.ForeignKey(User, verbose_name=u'创建者')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name=u'创建时间')
     is_display = models.BooleanField(default=True, verbose_name=u'是否显示')
+
+    def __unicode__(self):
+        return self.title
 
     class Meta:
         verbose_name = verbose_name_plural = u'侧边栏'
