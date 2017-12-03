@@ -29,6 +29,9 @@ class Articles(models.Model):
     status = models.IntegerField(default=1, choices=STATUS_ITEMS, verbose_name=u'文章状态')
     is_top = models.IntegerField(default=0, choices=TOP_ITEMS, verbose_name=u'置顶')
 
+    def __unicode__(self):
+        return self.title
+
     class Meta:
         verbose_name_plural = verbose_name = u'文章管理'
         ordering = ['-created_time']
@@ -48,6 +51,10 @@ class Category(models.Model):
     status = models.IntegerField(default=1, choices=STATUS_ITEMS, verbose_name=u'栏目状态')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name=u'创建时间')
     is_nav = models.BooleanField(default=False, verbose_name=u'是否导航')
+
+    def __unicode__(self):
+        return self.name
+
 
     class Meta:
         verbose_name_plural = verbose_name = u'分类管理'
