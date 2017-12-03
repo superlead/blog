@@ -3,25 +3,20 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
+from blogweb.custom_admin import BaseAdmin
 from .models import Articles, Category, Tag
 
 
 @admin.register(Articles)
-class ArticlesAdmin(admin.ModelAdmin):
-    def save_model(self, request, obj, form, change):
-        obj.owner = request.user
-        super(ArticlesAdmin, self).save_model(request, obj, form, change)
+class ArticlesAdmin(BaseAdmin):
+    exclude = ('owner',)
 
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    def save_model(self, request, obj, form, change):
-        obj.owner = request.user
-        super(CategoryAdmin, self).save_model(request, obj, form, change)
+class CategoryAdmin(BaseAdmin):
+    exclude = ('owner',)
 
 
 @admin.register(Tag)
-class TagAdmin(admin.ModelAdmin):
-    def save_model(self, request, obj, form, change):
-        obj.owner = request.user
-        super(TagAdmin, self).save_model(request, obj, form, change)
+class TagAdmin(BaseAdmin):
+    exclude = ('owner',)
