@@ -69,6 +69,9 @@ class Tag(models.Model):
     created_time = models.DateTimeField(auto_now_add=True, verbose_name=u'创建时间')
     is_nav = models.BooleanField(default=False, verbose_name=u'是否导航')
 
+    def __unicode__(self):
+        return self.name
+
     class Meta:
         verbose_name_plural = verbose_name = u'话题管理'
         ordering = ['-created_time']
