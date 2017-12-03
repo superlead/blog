@@ -8,9 +8,13 @@ from .models import Link, SideBar
 
 @admin.register(Link)
 class LinkAdmin(admin.ModelAdmin):
-    pass
+    def save_model(self, request, obj, form, change):
+        obj.owner = request.user
+        super(LinkAdmin, self).save_model(request, obj, form, change)
 
 
 @admin.register(SideBar)
-class SideBar(admin.ModelAdmin):
-    pass
+class SideBarAdmin(admin.ModelAdmin):
+    def save_model(self, request, obj, form, change):
+        obj.owner = request.user
+        super(SideBarAdmin, self).save_model(request, obj, form, change)
