@@ -14,5 +14,8 @@ class Comment(models.Model):
     created_time = models.DateTimeField(auto_now_add=True, verbose_name=u'添加时间')
     status = models.BooleanField(default=False, verbose_name=u'是否显示')
 
+    def __unicode__(self):
+        return self.author
+
     class Meta:
         verbose_name_plural = verbose_name = u'评论管理'
